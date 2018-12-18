@@ -76,4 +76,4 @@
 
 
 
-const add = x => y => y + x;
+// const add = x => y => y + x;
