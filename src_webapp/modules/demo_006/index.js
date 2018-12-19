@@ -36,6 +36,7 @@
 // let person = {
 //   name: 'jike',
 //   init: function() {
+// 		console.log(this);
 //     document.body.onclick = () => {
 //       alert(this.name);               
 //     }
@@ -43,16 +44,44 @@
 // }
 // person.init();
 
+
 // var person = {
-//     name:'jike',
-//     init:()=>{
-        
-//         document.body.onclick = ()=>{
-//             alert(this.name);                  
-//         }
+//   name: 'jike',
+//   init: () => {
+//     console.log(this);
+//     document.body.onclick = () => {
+//       alert(this.name);
 //     }
+//   }
 // }
-// person.init();  
+// person.init();
+// person.init.call({});
+
+
+// function foo() {
+//   setTimeout(function() {
+//     console.log('id:', this.id);
+//   }, 100);
+// }
+
+// var id = 21;
+// foo.call({ id: 42 });
+
+// function Timer() {
+//   this.s1 = 0;
+//   this.s2 = 0;
+//   // 箭头函数
+//   setInterval(() => this.s1++, 1000);
+//   // 普通函数
+//   setInterval(function () {
+//     this.s2++;
+//   }, 1000);
+// }
+
+// var timer = new Timer();
+
+// setTimeout(() => console.log('s1: ', timer.s1), 3100);
+// setTimeout(() => console.log('s2: ', timer.s2), 3100);
 
 
 
@@ -60,8 +89,7 @@
 
 
 
-
-
+// var cc= 2;
 
 // var a = ()=>{
 //   return 1;
@@ -70,7 +98,6 @@
 // function b(){
 //   return 2;
 // }
-
 // console.log(a.prototype);  // undefined
 // console.log(b.prototype);   // {constructor: ƒ}
 

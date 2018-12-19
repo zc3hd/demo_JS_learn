@@ -1,5 +1,5 @@
 'use strict';
-var one = './src_webapp/modules/demo_006/';
+var one = './src_webapp/modules/demo_008/';
 
 
 
@@ -68,6 +68,9 @@ var htmlmin = require('gulp-htmlmin');
 // var uglify = require('gulp-uglify');
 const uglify = require('gulp-uglifyes');
 var babel = require('gulp-babel');
+// 取消严格模式
+var removeUseStrict = require("gulp-remove-use-strict");
+
 // css
 var cssnano = require('gulp-cssnano');
 var less = require('gulp-less');
@@ -249,13 +252,16 @@ gulp.task('js', function() {
     // .pipe(rename({
     //   suffix: '.min'
     // }))
+
     // 转语法
     .pipe(babel({
       presets: [
         'es2015',
       ]
     }))
-    // 保留部分注释
+    // 去除严格，这个不管用
+    // .pipe(removeUseStrict())
+    // 压缩
     .pipe(uglify())
     // 输出路径
     .pipe(gulp.dest(opts.one_dist))
