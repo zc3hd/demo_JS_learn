@@ -75,6 +75,7 @@ let node = {
 },
 type = "Literal",
 name = 5;
+单独赋值：就是前面没有对内部变量类型的声明；
 ({ type, name } = node);
 
 console.log(type); // "Identifier"
@@ -98,7 +99,7 @@ var {time=12,id=0}={};
 console.log(time); // 12
 
 ------------------------------------------
-【多层嵌套】：数据可以是多层嵌套，解构就是看解构到哪层
+【多层嵌套】：数据可以是多层嵌套，解构就是看解构到哪层，就赋值到哪层；
 let obj = {
   a: {
     aa: 'aa',
@@ -107,7 +108,6 @@ let obj = {
 };
 let { a } = obj;
 console.log(a);  // {aa: 'aa',bb: 'bb'}
-
 
 
 let obj = {
@@ -128,12 +128,14 @@ console.log(firstColor); // "red"
 console.log(secondColor); // "green"
 
 ------------------------------------------------
+不需要对应声明，那就是通过位置可以解构赋值
+
 let colors = [ "red", "green", "blue" ];
 let [ , , thirdColor ] = colors;
 console.log(thirdColor); // "blue"
 
 ------------------------------------------------
-【交换值】在 ES6 中互换值
+【交换值】在 ES6 中互换值，有声明的元素的变量，就对应的找进行赋值；
 let a = 1,
     b = 2;
 [ a, b ] = [ b, a ];
@@ -148,7 +150,7 @@ console.log(firstColor); // "red"
 console.log(secondColor); // "green"
 
 -------------------------------------------------
-【嵌套数组】
+【嵌套数组】还是要看怎么进行解构。secondColor就解构到数据的第一个元素，所以是green
 let colors = [ "red", [ "green", "lightgreen" ], "blue" ];
 let [ firstColor, [ secondColor ] ] = colors;
 

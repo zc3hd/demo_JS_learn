@@ -158,7 +158,8 @@ setTimeout(() => console.log('s2: ', timer.s2), 3100);  //0
 
 3s后 
 setInterval(() => this.s1++, 1000); 已经执行三次，this为timer对象
-setInterval(function () {  this.s2++;}, 1000);  尽管执行三次，但是window上没有这个值。最后打印的是timer对象上的s2值。
+setInterval(function () {  this.s2++;}, 1000); 尽管执行三次，但是window上没有这个值。也就是说，setInterval执行的都是
+最后打印的是timer对象上的s2值。
 ```
 * 因为所有箭头函数，都没有自己的this；
 * 它们的this其实都是最外层foo函数的this。除了this，以下三个变量在箭头函数之中也是不存在的，指向外层函数的对应变量：arguments、super、new.target。
